@@ -273,6 +273,9 @@ h1{
     .quote{
         margin-left: 40px;
        }
+       .heading{
+        margin-left: 35px;
+       }
 }
 @media (max-width: 350px){
     h1{
