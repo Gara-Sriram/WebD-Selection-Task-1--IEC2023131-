@@ -242,7 +242,7 @@ h1{
     .welcome-text{
         position: absolute;
         top: 35px;
-      left: 90px;
+      left: 80px;
      
      
       font-weight: 600;
@@ -259,11 +259,20 @@ h1{
     .welcome-text{
         position: absolute;
         top: 35px;
-      left: 100px;
+      left: 55px;
      
      
       font-weight: 600;
     }
+    .welcome{
+        margin-left: 60px;
+    }
+    .Q-container{
+        margin-left: 60px;
+    }
+    .quote{
+        margin-left: 40px;
+       }
 }
 @media (max-width: 350px){
     h1{
