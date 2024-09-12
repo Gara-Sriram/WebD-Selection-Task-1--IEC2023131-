@@ -2,6 +2,7 @@
     --main-color: white;
     --btn-color:   white;
     --text-color: black;
+    --Ptext-color: rgba(29, 44, 44, 0.697);
 }
 body{
     background-color: var(--main-color);
@@ -60,7 +61,8 @@ body{
     width: 200px;
     height: 35px;
     text-align: center;
-    border: 1px solid gray
+    border: 1px solid gray;
+    
  
 }
 .profile{
@@ -159,13 +161,16 @@ h1{
     gap: 25px;
 }
 .questionBox-D{
-    border: 1px solid grey;
+    border: 1px solid rgba(22, 18, 18, 0.605);
     border-radius: 6px;
     flex-direction: row;
     display: flex;
     gap: 20px;
     padding: 10px 20px;
     justify-content: space-between;
+}
+.sideText{
+   color: var(--Ptext-color)
 }
 .greenBox{
     border: 1px solid green;
@@ -180,6 +185,7 @@ h1{
     --main-color: black;
     --btn-color:   black;
     --text-color: white;
+    --Ptext-color: rgba(255, 255, 255, 0.91);
     
 }
 .yt-img{
@@ -192,6 +198,40 @@ h1{
 .hide{
     display: none;
 }
+.progressbar{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background-color:rgb(118, 255, 5)
+    
+}
+@media (max-width: 1300px){
+    .welcome-text {
+        position: absolute;
+        top: 35px;
+      left: 140px;
+     
+     
+      font-weight: 600;
+    }
+   .quote{
+    margin-right: 80px;
+   }
+
+}
+@media (max-width: 1100px){
+    .welcome-text {
+        position: absolute;
+        top: 35px;
+      left: 100px;
+     
+     
+      font-weight: 600;
+    }
+   .quote{
+    margin-right: 120px;
+   }
+}
 @media (max-width: 760px){
     h1{
         font-size: 35px;
@@ -202,7 +242,7 @@ h1{
     .welcome-text{
         position: absolute;
         top: 35px;
-      left: 120px;
+      left: 90px;
      
      
       font-weight: 600;
@@ -219,7 +259,24 @@ h1{
     .welcome-text{
         position: absolute;
         top: 30px;
-      left: 100px;
+      left: 60px;
+     
+     
+      font-weight: 600;
+    }
+}
+@media (max-width: 350px){
+    h1{
+        font-size: 26px;
+    }
+    p{
+        font-size: 12px;
+        
+    }
+    .welcome-text{
+        position: absolute;
+        top: 30px;
+      left: 40px;
      
      
       font-weight: 600;

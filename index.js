@@ -4,6 +4,7 @@ fetch("https://test-data-gules.vercel.app/data.json").then((data)=>{
     return data.json()
 }).then((Data)=>{
     Data.data.forEach((item)=>{
+        let count=0;
         const topic = document.createElement("div");
         topic.classList.add("category");
         const topicBox = document.createElement("div");
@@ -15,8 +16,13 @@ fetch("https://test-data-gules.vercel.app/data.json").then((data)=>{
     topicBox.appendChild(topicContent);
     questionsList.push(topicBox);
     topic.appendChild(topicBox)
+    const progressText = document.createElement("h2")
+    progressText.classList.add("sideText")
     const questionsContainer = document.createElement("div");
-   
+   const progressBar = document.createElement("progress");
+   progressBar.setAttribute("max",item.ques.length)
+   progressBar.setAttribute("value",count)
+   progressBar.classList.add("progressbar")
     questionsContainer.classList.add("subcategoryContainer")
     item.ques.forEach((item1)=>{
         const allQuestions = document.createElement("div");
@@ -51,16 +57,32 @@ fetch("https://test-data-gules.vercel.app/data.json").then((data)=>{
         allQuestions.appendChild(questionBox);
         questionsContainer.appendChild(allQuestions);
         questionsContainer.classList.add('active')
+        questionsContainer.appendChild(progressText);
+        questionsContainer.appendChild(progressBar);
         tick.addEventListener('click',function(event){
             
-            questionBox.classList.toggle("completed")
+            if(questionBox.classList.contains("completed")){
+                questionBox.classList.remove("completed")
+                count-=1;
+            }
+            else{
+                questionBox.classList.add("completed");
+                count+=1;
+            }
+            progressBar.value=count;
+            progressText.textContent= "You have completed " + count + " questions" 
         })
+        
     })
     topic.appendChild(questionsContainer);
     total.appendChild(topic)
     topicBox.addEventListener('click',()=>{
         questionsContainer.classList.toggle('active')
     })
+    if(count!=0){
+        console.log(count)
+    }
+  
     });
   
 }).catch(error => console.error('Error fetching data:', error)); 
@@ -70,6 +92,7 @@ if(localStorage.getItem("darkmode")==="true"){
     document.querySelector(".menu").src="./public/menuWhiteIcon-removebg-preview.png"
     document.querySelector(".user").src="./public/whiteUser.png"
     document.body.classList.add("darkmode")
+   
     document.querySelector(".s-logo").src="./public/icons8-search-30.png"
 
 }
@@ -87,6 +110,7 @@ document.querySelector(".mode").addEventListener('click',function(event){
     document.querySelector(".user").src="./public/user.png"
        
         event.target.classList.remove('darkmode')
+        document.querySelector(".sideText").classList.remove("darkmode")
         document.body.classList.remove("darkmode")
         localStorage.setItem("darkmode","false")
         document.querySelector(".s-logo").src="./public/search_icon.png"
@@ -94,6 +118,7 @@ document.querySelector(".mode").addEventListener('click',function(event){
     else{
         event.target.src='./public/sun_555306.png';
         event.target.classList.add("darkmode");
+        document.querySelector(".sideText").classList.add("darkmode")
         localStorage.setItem("darkmode","true");
         document.querySelector(".menu").src="./public/menuWhiteIcon-removebg-preview.png"
     document.querySelector(".user").src="./public/whiteUser.png"
