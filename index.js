@@ -105,7 +105,7 @@ else{
 
 document.querySelector(".mode").addEventListener('click',function(event){
     if(event.target.classList.contains("darkmode")){
-        event.target.src='/public/night-mode.png';
+        event.target.src='./public/night-mode.png';
         document.querySelector(".menu").src="./public/icons8-menu-50.png"
     document.querySelector(".user").src="./public/user.png"
        

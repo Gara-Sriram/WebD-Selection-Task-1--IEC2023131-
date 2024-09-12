@@ -62,7 +62,7 @@ body{
     height: 35px;
     text-align: center;
     border: 1px solid gray;
-    
+
  
 }
 .profile{
@@ -258,8 +258,8 @@ h1{
     }
     .welcome-text{
         position: absolute;
-        top: 30px;
-      left: 60px;
+        top: 35px;
+      left: 100px;
      
      
       font-weight: 600;
